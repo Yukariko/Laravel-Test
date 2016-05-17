@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Redis;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,9 +10,11 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
-    function index()
+  function index()
 	{
-		return view('pages.index');
+		$counter = Redis::incr('counter');
+
+		return view('pages.index', ['counter' => $counter]);
 	}
 	function about()
 	{

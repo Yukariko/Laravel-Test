@@ -13,6 +13,6 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/users', function() {
-	return view('user');
+	return "Users";
 });
 Route::get('/articles', 'ArticlesController@index');
